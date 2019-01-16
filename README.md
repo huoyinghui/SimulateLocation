@@ -85,9 +85,27 @@ iPhone所需要的坐标是**WGS-84**，我们获取的是**GCJ-02**，这里我
 > 辣么，惊喜来了：
 > * **破解钉钉WiFi打卡：**把家里的WiFi名称改得和公司打卡的WiFi即可。据我测试，我们公司只配置校验了SSID，没有校验DHCP地址。
 > * **随时随地打卡：**按照上面的步骤模拟定位完成之后，不要Stop，直接拔掉数据线（猜测是Xcode开发者模式开了个进程来模拟定位，如果Xcode上没有Stop，那这个进程就不会Kill掉）。
-> * **WiFi破解弊端：**公司如果启动了DHCP校验，那就只能靠社工的方法搞到地址，也只能在家里打卡了。  
+> * **WiFi破解弊端：**公司如果启动了DHCP校验，那就只能靠社工的方法搞到地址，也只能在家里打卡了。
 > * **随地打卡弊端：**恢复方法只能重启手机才能还原定位，经测试，微信里地图无法使用，一片空白，所以这里阔以用不用的旧的测试机来专注打卡，我就只能帮你到这里了。
 
 中午测试了下摩拜的红包车，如果我的手机定位没有改变，无论骑行多远，骑行距离都是0米，红包也只有一块（一中午四辆红包车均是如此）。看到这里应该不用我告诉你怎么撸红包了吧，撸红包的成本还是相对较高，必须随时背着电脑，如果公司没有开启WiFi打开，你又恰巧背了电脑，那就真的能随时随地打卡了。
 
 **Demo：**[https://github.com/rockerhx/SimulateLocation](https://github.com/rockerhx/SimulateLocation)
+
+#### 测试流程: 虚拟定位到 西安第一医院
+
+#### 1.百度获取位置坐标
+[百度坐标系统](http://api.map.baidu.com/lbsapi/getpoint/index.html)
+![获取坐标](https://raw.githubusercontent.com/huoyinghui/SimulateLocation/master/PNG/01bd_gps.jpg)
+
+
+
+#### 2.百度坐标转换为WGS坐标, 写入到项目gps文件
+[在线坐标转换](https://tool.lu/coordinate/)
+
+![百度坐标转换为ios的坐标](https://raw.githubusercontent.com/huoyinghui/SimulateLocation/master/PNG/02BD_2_WGS.jpg)
+
+
+#### 3.手机百度地图定位
+
+![手机百度定位验证](https://raw.githubusercontent.com/huoyinghui/SimulateLocation/master/PNG/03_test.jpg)
